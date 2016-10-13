@@ -17,20 +17,16 @@
         <div id="list">
             <ul>
                 <li>
-                    <label><img src="checkbox_small.png" width="30px" height="30px" id="all" class="unchecked"><input type="checkbox">Check All/None
+                    <label><img src="checkbox_small.png" width="30px" height="30px" id="all" class="unchecked align"><input type="checkbox">Check All/None
                     </label>
                 </li>
                 <!--<li class="template hidden">-->
-                    <!--<label>-->
-                        <!--<img src="checkbox_small.png" width="30px" height="30px" class="unchecked">-->
-                        <!--<input type="checkbox">-->
-                        <!--<span></span>-->
-                    <!--</label>-->
+                    <!--<img src="checkbox_small.png" width="30px" height="30px" class="unchecked">-->
+                    <!--<input type="checkbox">-->
+                    <!--<label for=""></label>-->
                 <!--</li>-->
             </ul>
         </div>
-
-
     </div>
 
 </div>
@@ -52,7 +48,7 @@
 
         var input = $('<input />', { type: 'checkbox', id: 'cb'+id, value: name });
         var label = $('<label />', { 'for': 'cb'+id, text: name });
-        var li = $('<li />').append('<img src="checkbox_small.png" width="30px" height="30px" class="unchecked chbx">').append(input).append(label);
+        var li = $('<li />').append('<img src="checkbox_small.png" width="30px" height="30px" class="unchecked chbx align">').append(input).append(label);
         li.appendTo(container);
     }
 
@@ -60,10 +56,10 @@
 //        var container = $('ul');
 //        var tpl = $('.template');
 //        var li = tpl.clone();
-//        li.removeClass('hidden template').find('span').text(name);
+//        li.removeClass('hidden template').find('label').text(name);
 //        container.append(li);
 //    }
-
+//comment added
     var animals = ['Dog', 'Cat', 'Fish'];
 
     for(var i = 0; i<animals.length; i++){
@@ -100,6 +96,25 @@
         return false;
     }
 
+    function updateStatusHandler() {
+           if($(this).hasClass('unchecked')){
+                $(this).removeClass('unchecked');
+           } else {
+                $(this).addClass('unchecked');
+           }
+
+            if(partChecked()){
+                checkAll.addClass('half-checked');
+                checkAll.removeClass('unchecked');
+            } else if(AllChecked()){
+                checkAll.removeClass('half-checked');
+                checkAll.removeClass('unchecked');
+            } else if(AllUnchecked){
+                checkAll.removeClass('half-checked');
+                checkAll.addClass('unchecked');
+            }
+    }
+
     checkAll.on('click', function () {
         checkAll.removeClass('half-checked');
 
@@ -130,22 +145,26 @@
     });
 
     checkboxes.on('click', function () {
-            if($(this).hasClass('unchecked')){
-                $(this).removeClass('unchecked');
-            } else {
-                $(this).addClass('unchecked');
-            }
 
-            if(partChecked()){
-                checkAll.addClass('half-checked');
-                checkAll.removeClass('unchecked');
-            } else if(AllChecked()){
-                checkAll.removeClass('half-checked');
-                checkAll.removeClass('unchecked');
-            } else if(AllUnchecked){
-                checkAll.removeClass('half-checked');
-                checkAll.addClass('unchecked');
-            }
+        $(this).toggleClass('unchecked');
+        updateStatusHandler();
+
+//            if($(this).hasClass('unchecked')){
+//                $(this).removeClass('unchecked');
+//            } else {
+//                $(this).addClass('unchecked');
+//            }
+//
+//            if(partChecked()){
+//                checkAll.addClass('half-checked');
+//                checkAll.removeClass('unchecked');
+//            } else if(AllChecked()){
+//                checkAll.removeClass('half-checked');
+//                checkAll.removeClass('unchecked');
+//            } else if(AllUnchecked){
+//                checkAll.removeClass('half-checked');
+//                checkAll.addClass('unchecked');
+//            }
         });
 </script>
 </body>

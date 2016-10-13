@@ -45,6 +45,10 @@ input[type="checkbox"] {
     /*!*background: url("checkbox_small.png") no-repeat;*!*/
 /*}*/
 
+.align{
+    position: relative;
+    top:7px;
+}
 
 .unchecked{
     filter: grayscale(100%);
