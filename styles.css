@@ -1,0 +1,59 @@
+#list ul {
+    list-style: none;
+}
+
+
+ /*input[type="checkbox"]+label:before {*/
+    /*content: '';*/
+    /*background: url("checkbox.png") no-repeat;*/
+    /*!*font-family: "symbols-technomart";*!*/
+    /*!*font-size: 28px;*!*/
+    /*!*margin-right: 12px;*!*/
+    /*!*color: #c1c1c1;*!*/
+    /*vertical-align: middle;*/
+    /*width: 10px;*/
+    /*height: 10px;*/
+    /*border: 1px solid green;*/
+    /*position: absolute;*/
+    /*left: 130px;*/
+
+/*}*/
+
+input[type="checkbox"] {
+    display:none;
+}
+
+/*img{*/
+    /*filter: grayscale(100%);*/
+/*}*/
+/*input[type="checkbox"] + label:before{*/
+    /*position: absolute;*/
+    /*left: 130px;*/
+    /*background: rebeccapurple;*/
+    /*!*background:url('checkbox_small.png') no-repeat;*!*/
+    /*height: 30px;*/
+    /*width: 30px;*/
+    /*display:inline-block;*/
+    /*padding: 0 0 0 0px;*/
+/*}*/
+
+
+/*.class_checkbox {*/
+    /*width: 15px;*/
+    /*height: 15px;*/
+    /*background-color: red;*/
+    /*!*background: url("checkbox_small.png") no-repeat;*!*/
+/*}*/
+
+
+.unchecked{
+    filter: grayscale(100%);
+}
+
+.half-checked {
+    filter: opacity(47%) !important;
+}
+
+.hidden{
+    display: none;
+}
