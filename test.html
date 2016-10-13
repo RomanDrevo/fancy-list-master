@@ -6,147 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">-->
     <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">-->
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="styles/styles.css">
     <title></title>
 
 </head>
 <body>
 
-<div class="container">
-    <div class="row">
-        <div id="list">
-            <ul>
-                <li>
-                    <label><img src="checkbox_small.png" width="30px" height="30px" id="all" class="unchecked"><input type="checkbox">Check All/None
-                    </label>
-                </li>
-                <!--<li class="template hidden">-->
-                    <!--<label>-->
-                        <!--<img src="checkbox_small.png" width="30px" height="30px" class="unchecked">-->
-                        <!--<input type="checkbox">-->
-                        <!--<span></span>-->
-                    <!--</label>-->
-                <!--</li>-->
-            </ul>
-        </div>
 
-
-    </div>
-
+<div id="list">
+    <ul>
+        <li>
+            <label><img src="checkbox_small.png" width="30px" height="30px" id="all" class="unchecked align"><input
+                    type="checkbox">Check All/None
+            </label>
+        </li>
+    </ul>
 </div>
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
- <!--Minified JavaScript-->
+<!--Minified JavaScript-->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
 
-
-<script type="text/javascript">
-
-    function addCheckbox(name) {
-        var container = $('ul');
-        var inputs = container.find('input');
-        var id = inputs.length+1;
-
-        var input = $('<input />', { type: 'checkbox', id: 'cb'+id, value: name });
-        var label = $('<label />', { 'for': 'cb'+id, text: name });
-        var li = $('<li />').append('<img src="checkbox_small.png" width="30px" height="30px" class="unchecked chbx">').append(input).append(label);
-        li.appendTo(container);
-    }
-
-//    function addCheckbox (name) {
-//        var container = $('ul');
-//        var tpl = $('.template');
-//        var li = tpl.clone();
-//        li.removeClass('hidden template').find('span').text(name);
-//        container.append(li);
-//    }
-
-    var animals = ['Dog', 'Cat', 'Fish'];
-
-    for(var i = 0; i<animals.length; i++){
-        addCheckbox(animals[i]);
-    }
-
-    var checkboxes = $(".chbx"),
-        checkAll = $('#all');
-
-    function AllUnchecked() {
-        for(var i = 0; i<checkboxes.length; i++){
-            if(!$(checkboxes[i]).hasClass('unchecked')) {
-                console.log('Checkbox' + checkboxes[i] + 'is checked!');
-                return false;
-            }
-        }
-        return true;
-    }
-
-    function AllChecked () {
-        for(var i = 0; i<checkboxes.length; i++){
-            if($(checkboxes[i]).hasClass('unchecked')) {
-                console.log('Checkbox' + checkboxes[i] + 'is UNchecked!');
-                return false;
-            }
-        }
-        return true;
-    }
-
-    function partChecked() {
-       if(!AllChecked() && !AllUnchecked()){
-           return true;
-       }
-        return false;
-    }
-
-    checkAll.on('click', function () {
-        checkAll.removeClass('half-checked');
-
-        if(checkAll.hasClass('unchecked')){
-            checkAll.removeClass('unchecked');
-            if(partChecked()){
-                checkboxes.each(function () {
-                    $(this).removeClass('unchecked');
-                })
-            } else {
-                checkboxes.each(function () {
-                    $(this).removeClass('unchecked');
-                })
-            }
-        }
-        else if(!checkAll.hasClass('unchecked')){
-            $("#all").addClass('unchecked');
-            if(partChecked()){
-                checkboxes.each(function () {
-                    $(this).addClass('unchecked');
-                })
-            }else {
-                checkboxes.each(function () {
-                    $(this).addClass('unchecked');
-                })
-            }
-        }
-    });
-
-    checkboxes.on('click', function () {
-            if($(this).hasClass('unchecked')){
-                $(this).removeClass('unchecked');
-            } else {
-                $(this).addClass('unchecked');
-            }
-
-            if(partChecked()){
-                checkAll.addClass('half-checked');
-                checkAll.removeClass('unchecked');
-            } else if(AllChecked()){
-                checkAll.removeClass('half-checked');
-                checkAll.removeClass('unchecked');
-            } else if(AllUnchecked){
-                checkAll.removeClass('half-checked');
-                checkAll.addClass('unchecked');
-            }
-        });
-</script>
+<script type="text/javascript" src="toyga.js"></script>
 </body>
 </html>

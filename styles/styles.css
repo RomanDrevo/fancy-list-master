@@ -1,0 +1,24 @@
+#list ul {
+    list-style: none;
+}
+
+input[type="checkbox"] {
+    display:none;
+}
+
+.align{
+    position: relative;
+    top:7px;
+}
+
+.unchecked{
+    filter: grayscale(100%);
+}
+
+.half-checked {
+    filter: opacity(47%) !important;
+}
+
+.hidden{
+    display: none;
+}
