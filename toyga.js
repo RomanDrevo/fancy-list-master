@@ -84,5 +84,5 @@ checkboxes.on('click', function () {
     updateStatusHandler();
 });
 
-//
+
 
